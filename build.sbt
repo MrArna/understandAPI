@@ -6,7 +6,9 @@ crossPaths := false
 
 autoScalaLibrary := false
 
-javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
+javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 
 
 libraryDependencies += "org.jgrapht" % "jgrapht-core" % "1.0.0"
+libraryDependencies += "org.jgrapht" % "jgrapht-dist" % "1.0.0"
+libraryDependencies += "jgraph" % "jgraph" % "5.13.0.0"
