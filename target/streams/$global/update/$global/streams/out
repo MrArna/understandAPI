@@ -1,0 +1,194 @@
+[info] Updating {file:/Users/Marco/Google%20Drive/Universit%C3%A0/CS474/cs474-HW2/}cs474-hw2...
+[debug] :: resolving dependencies :: default#cs474-hw2;1.0
+[debug] 	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool]
+[debug] 	validate = true
+[debug] 	refresh = false
+[debug] resolving dependencies for configuration 'compile'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->default(compile)]
+[info] Resolving org.jgrapht#jgrapht-core;1.0.0 ...
+[debug] sbt-chain: Checking cache for: dependency: org.jgrapht#jgrapht-core;1.0.0 {compile=[default(compile)]}
+[info] Resolving org.jgrapht#jgrapht-core;1.0.0 ...
+[debug] sbt-chain-delegate: Checking cache for: dependency: org.jgrapht#jgrapht-core;1.0.0 {compile=[default(compile)]}
+[debug] 		tried /Users/Marco/.ivy2/local/org.jgrapht/jgrapht-core/1.0.0/ivys/ivy.xml
+[debug] 	local: no ivy file found for org.jgrapht#jgrapht-core;1.0.0
+[debug] 		tried https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom
+[debug] 	jcenter: found md file for org.jgrapht#jgrapht-core;1.0.0
+[debug] 		=> https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom (1.0.0)
+[debug] downloading https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom ...
+[debug] 	jcenter: downloading https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom
+[debug] 	jcenter: downloading https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom.sha1
+[debug] sha1 OK for https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom
+[debug] 	[SUCCESSFUL ] org.jgrapht#jgrapht-core;1.0.0!jgrapht-core.pom(pom.original) (504ms)
+[info] Resolving org.jgrapht#jgrapht;1.0.0 ...
+[debug] sbt-chain: Checking cache for: dependency: org.jgrapht#jgrapht;1.0.0 {}
+[info] Resolving org.jgrapht#jgrapht;1.0.0 ...
+[debug] sbt-chain-delegate: Checking cache for: dependency: org.jgrapht#jgrapht;1.0.0 {}
+[debug] 		tried /Users/Marco/.ivy2/local/org.jgrapht/jgrapht/1.0.0/ivys/ivy.xml
+[debug] 	local: no ivy file found for org.jgrapht#jgrapht;1.0.0
+[debug] 		tried https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.pom
+[debug] 	jcenter: found md file for org.jgrapht#jgrapht;1.0.0
+[debug] 		=> https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.pom (1.0.0)
+[debug] downloading https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.pom ...
+[debug] 	jcenter: downloading https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.pom
+[debug] 	jcenter: downloading https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.pom.sha1
+[debug] sha1 OK for https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.pom
+[debug] 	[SUCCESSFUL ] org.jgrapht#jgrapht;1.0.0!jgrapht.pom(pom.original) (506ms)
+[info] Resolving org.sonatype.oss#oss-parent;7 ...
+[debug] sbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}
+[debug] sbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7
+[debug] 		tried /Users/Marco/.ivy2/local/org.jgrapht/jgrapht/1.0.0/jars/jgrapht.jar
+[debug] 		tried https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.jar
+[debug] CLIENT ERROR: Not Found url=https://jcenter.bintray.com/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.jar
+[debug] 		tried https://repo1.maven.org/maven2/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.jar
+[debug] CLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/org/jgrapht/jgrapht/1.0.0/jgrapht-1.0.0.jar
+[debug] 		tried /Users/Marco/.ivy2/local/org.jgrapht/jgrapht-core/1.0.0/jars/jgrapht-core.jar
+[debug] 		tried https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar
+[debug] 	found org.jgrapht#jgrapht-core;1.0.0 in jcenter
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->master]
+[debug] resolving dependencies for configuration 'runtime'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [runtime]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->default(compile)]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->master]
+[debug] resolving dependencies for configuration 'test'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [test]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [runtime]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->default(compile)]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->master]
+[debug] resolving dependencies for configuration 'provided'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [provided]
+[debug] resolving dependencies for configuration 'optional'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [optional]
+[debug] resolving dependencies for configuration 'compile-internal'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile-internal]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->default(compile)]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->master]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [optional]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [provided]
+[debug] resolving dependencies for configuration 'runtime-internal'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [runtime-internal]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [runtime]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->default(compile)]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->master]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [optional]
+[debug] resolving dependencies for configuration 'test-internal'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [test-internal]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [test]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [runtime]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->default(compile)]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.jgrapht#jgrapht-core;1.0.0 [compile->master]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [optional]
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [provided]
+[debug] resolving dependencies for configuration 'plugin'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [plugin]
+[debug] resolving dependencies for configuration 'sources'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [sources]
+[debug] resolving dependencies for configuration 'docs'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [docs]
+[debug] resolving dependencies for configuration 'pom'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [pom]
+[debug] resolving dependencies for configuration 'scala-tool'
+[debug] == resolving dependencies for default#cs474-hw2;1.0 [scala-tool]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-compiler;2.10.4 [scala-tool->default]
+[info] Resolving org.scala-lang#scala-compiler;2.10.4 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-compiler;2.10.4 {scala-tool=[default, optional(default)]}
+[debug] sbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.10.4
+[debug] 	found org.scala-lang#scala-compiler;2.10.4 in sbt-chain
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-compiler;2.10.4 [scala-tool->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-compiler;2.10.4 [scala-tool->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->master(*)]
+[info] Resolving org.scala-lang#scala-library;2.10.4 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-library;2.10.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+[debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.4
+[debug] 	found org.scala-lang#scala-library;2.10.4 in sbt-chain
+[debug] 	[2.10.4] org.scala-lang#scala-library;2.10.4
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->compile(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->default]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->runtime]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->master]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->optional(default)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-reflect;2.10.4 [compile->master(*)]
+[info] Resolving org.scala-lang#scala-reflect;2.10.4 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+[debug] sbt-chain: module revision found in cache: org.scala-lang#scala-reflect;2.10.4
+[debug] 	found org.scala-lang#scala-reflect;2.10.4 in sbt-chain
+[debug] 	[2.10.4] org.scala-lang#scala-reflect;2.10.4
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-reflect;2.10.4 [compile->compile(*)]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->master(*)]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.4->org.scala-lang#scala-library;2.10.4 [compile->compile(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-reflect;2.10.4 [compile->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-reflect;2.10.4 [compile->compile]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.4->org.scala-lang#scala-library;2.10.4 [runtime->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-reflect;2.10.4->org.scala-lang#scala-library;2.10.4 [runtime->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [runtime->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-library;2.10.4 [runtime->compile]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-reflect;2.10.4 [runtime->runtime(*)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#scala-reflect;2.10.4 [runtime->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-compiler;2.10.4 [scala-tool->master]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-compiler;2.10.4 [scala-tool->optional(default)]
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#jline;2.10.4 [optional->master(*)]
+[info] Resolving org.scala-lang#jline;2.10.4 ...
+[debug] sbt-chain: Checking cache for: dependency: org.scala-lang#jline;2.10.4 {optional=[compile(*), master(*)]}
+[debug] sbt-chain: module revision found in cache: org.scala-lang#jline;2.10.4
+[debug] 	found org.scala-lang#jline;2.10.4 in sbt-chain
+[debug] == resolving dependencies org.scala-lang#scala-compiler;2.10.4->org.scala-lang#jline;2.10.4 [optional->compile(*)]
+[debug] == resolving dependencies org.scala-lang#jline;2.10.4->org.fusesource.jansi#jansi;1.4 [compile->master(*)]
+[info] Resolving org.fusesource.jansi#jansi;1.4 ...
+[debug] sbt-chain: Checking cache for: dependency: org.fusesource.jansi#jansi;1.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}
+[debug] sbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4
+[debug] 	found org.fusesource.jansi#jansi;1.4 in sbt-chain
+[debug] == resolving dependencies org.scala-lang#jline;2.10.4->org.fusesource.jansi#jansi;1.4 [compile->compile(*)]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-library;2.10.4 [scala-tool->default]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-library;2.10.4 [scala-tool->runtime]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-library;2.10.4 [scala-tool->compile]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-library;2.10.4 [scala-tool->master]
+[debug] == resolving dependencies default#cs474-hw2;1.0->org.scala-lang#scala-library;2.10.4 [scala-tool->optional(default)]
+[debug] 	resolved ivy file produced in cache
+[debug] :: downloading artifacts ::
+[debug] 		tried https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar
+[info] downloading https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar ...
+[debug] 	jcenter: downloading https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar
+[debug] 	jcenter: downloading https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar.sha1
+[debug] sha1 OK for https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar
+[info] 	[SUCCESSFUL ] org.jgrapht#jgrapht-core;1.0.0!jgrapht-core.jar (2861ms)
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.4!scala-compiler.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-library;2.10.4!scala-library.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#scala-reflect;2.10.4!scala-reflect.jar
+[debug] 	[NOT REQUIRED] org.scala-lang#jline;2.10.4!jline.jar
+[debug] 	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar
+[debug] :: resolution report :: resolve 3900ms :: artifacts dl 2869ms
+[debug] 	report for default#cs474-hw2;1.0 compile produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-compile.xml
+[debug] 	report for default#cs474-hw2;1.0 runtime produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-runtime.xml
+[debug] 	report for default#cs474-hw2;1.0 test produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-test.xml
+[debug] 	report for default#cs474-hw2;1.0 provided produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-provided.xml
+[debug] 	report for default#cs474-hw2;1.0 optional produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-optional.xml
+[debug] 	report for default#cs474-hw2;1.0 compile-internal produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-compile-internal.xml
+[debug] 	report for default#cs474-hw2;1.0 runtime-internal produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-runtime-internal.xml
+[debug] 	report for default#cs474-hw2;1.0 test-internal produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-test-internal.xml
+[debug] 	report for default#cs474-hw2;1.0 plugin produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-plugin.xml
+[debug] 	report for default#cs474-hw2;1.0 sources produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-sources.xml
+[debug] 	report for default#cs474-hw2;1.0 docs produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-docs.xml
+[debug] 	report for default#cs474-hw2;1.0 pom produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-pom.xml
+[debug] 	report for default#cs474-hw2;1.0 scala-tool produced in /Users/Marco/Google Drive/Università/CS474/cs474-HW2/target/resolution-cache/reports/default-cs474-hw2-scala-tool.xml
+[debug] 	resolve done (3900ms resolve - 2869ms download)
+[info] Done updating.

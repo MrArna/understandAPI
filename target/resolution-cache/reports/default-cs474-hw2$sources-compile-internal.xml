@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="default"
+		module="cs474-hw2$sources"
+		revision="1.0"
+		conf="compile-internal"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20160923175737"/>
+	<dependencies>
+		<module organisation="org.jgrapht" name="jgrapht-core">
+			<revision name="1.0.0" status="release" pubdate="20160918122346" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default(compile), default, compile, runtime, master" position="0">
+				<license name="GNU Lesser General Public License Version 2.1, February 1999" url="http://jgrapht.sourceforge.net/LGPL.html"/>
+				<license name="Eclipse Public License (EPL) 1.0" url="http://www.eclipse.org/legal/epl-v10.html"/>
+				<metadata-artifact status="no" details="" size="4666" time="0" location="/Users/Marco/.ivy2/cache/org.jgrapht/jgrapht-core/ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.pom"/>
+				<caller organisation="default" name="cs474-hw2$sources" conf="optional, compile, provided, compile-internal" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.0"/>
+				<artifacts>
+					<artifact name="jgrapht-core" type="jar" ext="jar" status="no" details="" size="438084" time="0" location="/Users/Marco/.ivy2/cache/org.jgrapht/jgrapht-core/jars/jgrapht-core-1.0.0.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0.jar"/>
+					</artifact>
+					<artifact name="jgrapht-core" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="374020" time="0" location="/Users/Marco/.ivy2/cache/org.jgrapht/jgrapht-core/srcs/jgrapht-core-1.0.0-sources.jar">
+						<origin-location is-local="false" location="https://jcenter.bintray.com/org/jgrapht/jgrapht-core/1.0.0/jgrapht-core-1.0.0-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>

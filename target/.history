@@ -1,0 +1,14 @@
+run
+build
+loaded-build
+clean
+compile
+reload
+exit
+compile
+clean
+compile
+run
+compile build.sbt
+run built.sbt
+exit
