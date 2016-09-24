@@ -14,21 +14,20 @@ public class UnderstandService
 {
     private Map<String,Database> dbs;
 
-    private UnderstandService service = null;
 
     public UnderstandService()
     {
-        if(service == null)
+        if(dbs == null)
         {
-            service = new UnderstandService();
             dbs = new HashMap<>();
         }
     }
 
     public void addDB(String name) throws UnderstandException
     {
-        String path = UnderstandService.class.getClassLoader().getResource(name + ".udb").toString();
-        dbs.put(name, Understand.open(path));
+        String path = this.getClass().getResource(name + ".udb").toString();
+        System.out.println(path);
+        dbs.put(name, Understand.open("/Users/Marco/Understand/Maruora.udb"));
     }
 
     public Database getDB(String name)
