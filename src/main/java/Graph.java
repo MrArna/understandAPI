@@ -27,19 +27,38 @@ import org.jgrapht.graph.DefaultEdge;
  *
  * @since Aug 3, 2003
  */
-public class JGraphAdapterDemo extends JApplet {
+public class Graph extends JApplet {
     private static final Color     DEFAULT_BG_COLOR = Color.decode( "#FAFBFF" );
     private static final Dimension DEFAULT_SIZE = new Dimension( 530, 320 );
 
     //
     private JGraphModelAdapter m_jgAdapter;
 
+    private ListenableDirectedGraph g;
+
+
+    public Graph()
+    {
+        g = new ListenableDirectedGraph( DefaultEdge.class );
+    }
+
+
+    public void addVertex(String name)
+    {
+        g.addVertex(name);
+    }
+
+    public void addEdge(String source, String destination, String e)
+    {
+        g.addEdge(source,destination,e);
+    }
+
+
+
     /**
      * @see java.applet.Applet#init().
      */
     public void init(  ) {
-        // create a JGraphT graph
-        ListenableGraph g = new ListenableDirectedGraph( DefaultEdge.class );
 
         // create a visualization using JGraph, via an adapter
         m_jgAdapter = new JGraphModelAdapter( g );
@@ -49,25 +68,7 @@ public class JGraphAdapterDemo extends JApplet {
         adjustDisplaySettings( jgraph );
         getContentPane(  ).add( jgraph );
         resize( DEFAULT_SIZE );
-
-        // add some sample data (graph manipulated via JGraphT)
-        g.addVertex( "v1" );
-        g.addVertex( "v2" );
-        g.addVertex( "v3" );
-        g.addVertex( "v4" );
-
-        g.addEdge( "v1", "v2" );
-        g.addEdge( "v2", "v3" );
-        g.addEdge( "v3", "v1" );
-        g.addEdge( "v4", "v3" );
-
-        // position vertices nicely within JGraph component
-        positionVertexAt( "v1", 130, 40 );
-        positionVertexAt( "v2", 60, 200 );
-        positionVertexAt( "v3", 310, 230 );
-        positionVertexAt( "v4", 380, 70 );
-
-        // that's all there is to it!...
+        
     }
 
 

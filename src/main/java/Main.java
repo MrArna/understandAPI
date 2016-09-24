@@ -6,9 +6,16 @@ import com.scitools.understand.*;
 public class Main {
     public static String projPath = "/Users/Marco/Understand/Maruora.udb";
     public static void main(String[] args) {
+
+        UnderstandService us = new UnderstandService();
+
+        Graph g = new Graph();
+
         try{
             //Open the Understand Database
-            Database db = Understand.open(projPath);
+            //Database db = Understand.open(projPath);
+            us.addDB("Maruora");
+            Database db = us.getDB("Maruora");
             // Get a list of all functions and methods
             Entity [] funcs = db.ents("Java Interface Type");
             for(Entity e : funcs){
