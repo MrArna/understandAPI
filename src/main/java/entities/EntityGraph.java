@@ -1,4 +1,4 @@
-/**
+package entities; /**
  * Created by Marco on 24/09/16.
  */
 import java.awt.Color;

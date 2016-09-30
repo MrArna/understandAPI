@@ -1,3 +1,5 @@
+package entities;
+
 import org.jgrapht.graph.DefaultEdge;
 
 /**

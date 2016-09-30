@@ -1,15 +1,14 @@
 /**
  * Created by Marco on 23/09/16.
  */
-import com.mxgraph.util.mxConstants;
 import com.scitools.understand.*;
-import com.sun.javafx.tk.*;
+import entities.EntityGraph;
+import entities.RelationshipEdge;
 import org.jgraph.JGraph;
-import org.jgraph.graph.AttributeMap;
 import org.jgraph.graph.DefaultGraphCell;
 import org.jgraph.graph.GraphConstants;
 import org.jgrapht.ext.JGraphModelAdapter;
-import org.jgrapht.graph.DefaultEdge;
+import services.UnderstandService;
 
 import javax.swing.*;
 import java.awt.*;
