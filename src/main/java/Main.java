@@ -1,9 +1,9 @@
 /**
  * Created by Marco on 23/09/16.
  */
-import com.scitools.understand.*;
+import com.scitools.understand.Entity;
+import com.scitools.understand.UnderstandException;
 import entities.EntityGraph;
-import entities.RelationshipEdge;
 import org.jgraph.JGraph;
 import org.jgraph.graph.DefaultGraphCell;
 import org.jgraph.graph.GraphConstants;
@@ -12,12 +12,12 @@ import services.UnderstandService;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Toolkit;
 import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main extends JApplet {
+public class Main {
+
     public static String projPath = "/Users/Marco/Understand/Maruora.udb";
 
     private static final Integer WIDTH = new Double(Toolkit.getDefaultToolkit().getScreenSize().getWidth()).intValue();
@@ -27,47 +27,29 @@ public class Main extends JApplet {
     private static final Color     DEFAULT_BG_COLOR = Color.decode( "#FAFBFF" );
     private static final Dimension DEFAULT_SIZE = new Dimension( WIDTH, HEIGHT );
 
-    //
+    private JApplet myApplet = new JApplet();
+
+
     private JGraphModelAdapter m_jgAdapter;
 
-    /**
-     * @see java.applet.Applet#init().
-     */
-    public void init(  ) {
+    public void main(String args[])
+    {
 
         UnderstandService us = new UnderstandService();
-        EntityGraph g = new EntityGraph();
-
-        // create a visualization using JGraph, via an adapter
-        m_jgAdapter = new JGraphModelAdapter( g.getGraph() );
-        JGraph jgraph = new JGraph( m_jgAdapter );
-        adjustDisplaySettings( jgraph );
-        getContentPane(  ).add( jgraph );
-        resize( DEFAULT_SIZE );
-
-        try
-        {
+        try {
             us.addDB("Maruora");
-            Database db = us.getDB("Maruora");
-            // Get a list of all Java interfaces
-            Entity [] funcs = db.ents("Java Interface Type");
-            for(Entity e : funcs)
-            {
-                g.addVertex(e);
-                //Find all the class that implements the given interface
-                Reference[] paramterRefs = e.refs("Java Implementby Coupleby", "", false);
-                for (Reference cRef : paramterRefs)
-                {
-                    Entity cEnt = cRef.ent();
-                    g.addVertex(cEnt);
-                    g.addEdge(e,cEnt, new RelationshipEdge<Entity>(e,cEnt,"implemented by"));
-                }
-            }
-        } catch (UnderstandException e)
-        {
-            System.out.println("Failed opening Database:" + e.getMessage());
+        } catch (UnderstandException e) {
+            System.out.println("Failed to access the specified DB");
             System.exit(0);
         }
+
+        EntityGraph g = us.findJavaInterfaceGraph("Maruora");
+
+        // create a visualization using JGraph, via an adapter
+        JGraph jgraph = new JGraph( m_jgAdapter );
+        adjustDisplaySettings( jgraph );
+        myApplet.getContentPane(  ).add( jgraph );
+        myApplet.resize( DEFAULT_SIZE );
 
 
         Integer actualPosX = 10;
@@ -99,6 +81,8 @@ public class Main extends JApplet {
         {
             setEdgeAttributes(edge);
         }
+
+
     }
 
 
@@ -109,7 +93,7 @@ public class Main extends JApplet {
         String colorStr = null;
 
         try {
-            colorStr = getParameter( "bgcolor" );
+            colorStr = myApplet.getParameter( "bgcolor" );
         }
         catch( Exception e ) {}
 
