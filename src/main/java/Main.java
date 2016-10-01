@@ -1,137 +1,59 @@
 /**
  * Created by Marco on 23/09/16.
  */
-import com.scitools.understand.Entity;
 import com.scitools.understand.UnderstandException;
 import entities.EntityGraph;
-import org.jgraph.JGraph;
-import org.jgraph.graph.DefaultGraphCell;
-import org.jgraph.graph.GraphConstants;
-import org.jgrapht.ext.JGraphModelAdapter;
+import org.apache.commons.cli.*;
+import services.GraphVisualizer;
 import services.UnderstandService;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
-import java.util.HashMap;
-import java.util.Map;
+import java.net.URISyntaxException;
 
 public class Main {
 
-    public static String projPath = "/Users/Marco/Understand/Maruora.udb";
 
-    private static final Integer WIDTH = new Double(Toolkit.getDefaultToolkit().getScreenSize().getWidth()).intValue();
-    private static final Integer HEIGHT = new Double(Toolkit.getDefaultToolkit().getScreenSize().getHeight()).intValue();
-    private static final Integer BOX_WIDTH = WIDTH / 10;
-
-    private static final Color     DEFAULT_BG_COLOR = Color.decode( "#FAFBFF" );
-    private static final Dimension DEFAULT_SIZE = new Dimension( WIDTH, HEIGHT );
-
-    private JApplet myApplet = new JApplet();
+    public static void main(String args[]) {
+        CommandLineParser parser = new DefaultParser();
 
 
-    private JGraphModelAdapter m_jgAdapter;
+        Options options = new Options();
+        options.addOption("v1", "database", true, "Path to the Understand udb file of version 1");
+        options.addOption("v2", "almost-all", true, "Path to the Understand udb file of version 1");
+        options.addOption("i", "interface", false, "Show interface graph");
+        options.addOption("c", "class",false,"Show class inheritance");
+        options.addOption("cg","call-graph",false,"Show call-graph");
 
-    public void main(String args[])
-    {
+        try {
+            // parse the command line arguments
+            CommandLine line = parser.parse(options, args);
+
+            // validate that block-size has been set
+            if (line.hasOption("v1") && line.hasOption("v2")) {
+                // print the value of block-size
+                System.out.println(line.getOptionValue("v1"));
+                System.out.println(line.getOptionValue("v2"));
+            }
+        } catch (ParseException exp) {
+            System.out.println("Unexpected exception:" + exp.getMessage());
+        }
 
         UnderstandService us = new UnderstandService();
+        GraphVisualizer gv = new GraphVisualizer();
+
+
+        String path = "/Users/Marco/Google Drive/Università/CS474/cs474-HW2/src/main/resources/Maruora.udb";
+
         try {
-            us.addDB("Maruora");
+            us.addDB(path);
         } catch (UnderstandException e) {
             System.out.println("Failed to access the specified DB");
             System.exit(0);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
         }
 
-        EntityGraph g = us.findJavaInterfaceGraph("Maruora");
-
-        // create a visualization using JGraph, via an adapter
-        JGraph jgraph = new JGraph( m_jgAdapter );
-        adjustDisplaySettings( jgraph );
-        myApplet.getContentPane(  ).add( jgraph );
-        myApplet.resize( DEFAULT_SIZE );
-
-
-        Integer actualPosX = 10;
-        Integer actualPosY = 10;
-        Integer relPosX = 0;
-
-        for(Object vertex : g.getGraph().vertexSet())
-        {
-            Entity e = (Entity)vertex;
-            if(e.kind().check("Java Interface Type"))
-            {
-                positionVertexAt(vertex,actualPosX,actualPosY);
-                for(Object neighborVertex : g.getNeighbor(e))
-                {
-                    positionVertexAt(neighborVertex,actualPosX + relPosX,actualPosY + 100);
-                    relPosX += 100;
-                }
-            }
-            actualPosX += BOX_WIDTH;
-            if(actualPosX >= WIDTH - 100)
-            {
-                actualPosX = 10;
-                actualPosY += 150;
-            }
-            relPosX = 0;
-        }
-
-        for(Object edge : g.getGraph().edgeSet())
-        {
-            setEdgeAttributes(edge);
-        }
-
+        EntityGraph g = us.findJavaGraph(path,"c");
+        gv.visualizeInterface(g);
 
     }
-
-
-    private void adjustDisplaySettings( JGraph jg ) {
-        jg.setPreferredSize( DEFAULT_SIZE );
-
-        Color c = DEFAULT_BG_COLOR;
-        String colorStr = null;
-
-        try {
-            colorStr = myApplet.getParameter( "bgcolor" );
-        }
-        catch( Exception e ) {}
-
-        if( colorStr != null ) {
-            c = Color.decode( colorStr );
-        }
-
-        jg.setBackground( c );
-    }
-
-
-    private void positionVertexAt( Object vertex, int x, int y )
-    {
-        Entity e = (Entity) vertex;
-
-
-        DefaultGraphCell cell = m_jgAdapter.getVertexCell( vertex );
-        Map attr = cell.getAttributes(  );
-        Rectangle2D b    = GraphConstants.getBounds( attr );
-
-        GraphConstants.setBounds( attr, new Rectangle( x, y, BOX_WIDTH , (int )b.getHeight()) );
-        GraphConstants.setAutoSize(attr,true);
-        GraphConstants.setValue(attr,e.name());
-        GraphConstants.setLabelAlongEdge(attr,false);
-        GraphConstants.setLabelEnabled(attr,false);
-
-        if(e.kind().check("Java Interface Type"))
-            GraphConstants.setBackground(attr,Color.BLUE);
-
-        Map cellAttr = new HashMap(  );
-        cellAttr.put( cell, attr );
-        m_jgAdapter.edit( cellAttr, null, null, null);
-    }
-
-    private void setEdgeAttributes(Object o)
-    {
-
-    }
-
-
 }
