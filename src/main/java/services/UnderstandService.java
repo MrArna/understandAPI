@@ -5,6 +5,7 @@ import entities.EntityGraph;
 import entities.RelationshipEdge;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,35 +40,63 @@ public class UnderstandService
         switch (option)
         {
             case "i":
-                referenceType = "Java Implementby Coupleby";
+                referenceType = "Java Extendby";
+                entityType = "Java Interface Type";
+                edgeLabel = "implemented by";
+                break;
+            case "im":
+                referenceType = "Java Implementby";
                 entityType = "Java Interface Type";
                 edgeLabel = "implemented by";
                 break;
             case "c":
-                referenceType = "Java Extendby Coupleby";
-                entityType = "Java Class Type";
+                referenceType = "Java Extendby";
+                entityType = "Java Class Member Type";
                 edgeLabel = "extended by";
                 break;
             case "cg":
-                referenceType = "Java Coupleby";
-                entityType = "Java Class Type";
+                referenceType = "Java Couple";
+                entityType = "Java Class Member Type";
                 edgeLabel = "called by";
                 break;
         }
 
-        Entity[] funcs = db.ents(entityType);
-        for(Entity e : funcs)
+        Entity[] entsArray = db.ents(entityType);
+
+        ArrayList<Entity> entsList = new ArrayList<Entity>();
+
+
+        for(Entity e : entsArray)
         {
-            g.addVertex(e);
-            //Find all the class that implements the given interface
-            Reference[] paramterRefs = e.refs(referenceType, "", false);
-            for (Reference cRef : paramterRefs)
+            if(e.library().equals(""))
             {
-                Entity cEnt = cRef.ent();
-                g.addVertex(cEnt);
-                g.addEdge(e,cEnt, new RelationshipEdge<Entity>(e,cEnt,edgeLabel));
+                entsList.add(e);
             }
         }
+
+
+        for(Entity e : entsList)
+        {
+            g.addVertex(e.name());
+            if(option.equals("im"))
+                entityType = "Java Class Member Type";
+
+            Reference[] paramterRefs = e.refs(referenceType, entityType, true);
+            for (Reference cRef : paramterRefs)
+            {
+
+                //System.out.println(cRef.toString());
+                Entity cEnt = cRef.ent();
+                if(cEnt.library().equals("") && !cEnt.name().equals(e.name()))
+                {
+                    g.addVertex(cEnt.name());
+                    g.addEdge(e.name(),cEnt.name());
+                }
+            }
+        }
+
+        //System.out.println(g.getGraph().edgeSet().size());
+
 
         g.closure();
         return g;
@@ -80,6 +109,11 @@ public class UnderstandService
     public Database getDB(String name)
     {
         return  dbs.get(name);
+    }
+
+    public int getNumDB()
+    {
+        return dbs.size();
     }
 
 

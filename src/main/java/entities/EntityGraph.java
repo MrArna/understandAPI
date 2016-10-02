@@ -24,11 +24,22 @@ public class EntityGraph {
     {
         g.addVertex(name);
     }
+    public void addVertex(String name)
+    {
+        g.addVertex(name);
+    }
 
     public void addEdge(Entity source, Entity destination, Object relation)
     {
 
             g.addEdge(source,destination,relation);
+
+    }
+
+    public void addEdge(String source, String destination)
+    {
+
+        g.addEdge(source,destination);
 
     }
 
@@ -59,6 +70,21 @@ public class EntityGraph {
         for(Object edge : g.edgesOf(e))
         {
             neighbors.add((Entity)g.getEdgeTarget(edge));
+        }
+
+        neighbors.remove(e);
+        return neighbors;
+    }
+
+    public List<String> getNeighbor(String e)
+    {
+        List<String> neighbors = new ArrayList<>();
+
+        for(Object edge : g.edgesOf(e))
+        {
+            String target = (String)g.getEdgeTarget(edge);
+            if(!target.equals(e))
+                neighbors.add(target);
         }
 
         return neighbors;

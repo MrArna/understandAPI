@@ -2,8 +2,10 @@
  * Created by Marco on 23/09/16.
  */
 import com.scitools.understand.UnderstandException;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import entities.EntityGraph;
 import org.apache.commons.cli.*;
+import org.jgrapht.alg.isomorphism.VF2SubgraphIsomorphismInspector;
 import services.GraphVisualizer;
 import services.UnderstandService;
 
@@ -23,15 +25,29 @@ public class Main {
         options.addOption("c", "class",false,"Show class inheritance");
         options.addOption("cg","call-graph",false,"Show call-graph");
 
+
+        String v1path = "";
+        Boolean diff = false;
+
         try {
             // parse the command line arguments
             CommandLine line = parser.parse(options, args);
 
+
+
             // validate that block-size has been set
             if (line.hasOption("v1") && line.hasOption("v2")) {
                 // print the value of block-size
+
+                v1path = line.getOptionValue("v1");
+
                 System.out.println(line.getOptionValue("v1"));
                 System.out.println(line.getOptionValue("v2"));
+
+                if (line.hasOption("d"))
+                {
+                    diff = true;
+                }
             }
         } catch (ParseException exp) {
             System.out.println("Unexpected exception:" + exp.getMessage());
@@ -52,8 +68,13 @@ public class Main {
             e.printStackTrace();
         }
 
-        EntityGraph g = us.findJavaGraph(path,"c");
-        gv.visualizeInterface(g);
+        EntityGraph g = us.findJavaGraph(path,"cg");
+        gv.consoleCoupleVisualizer(g);
+
+        if (diff)
+        {
+
+        }
 
     }
 }
