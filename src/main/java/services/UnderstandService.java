@@ -2,7 +2,6 @@ package services;
 
 import com.scitools.understand.*;
 import entities.EntityGraph;
-import entities.RelationshipEdge;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -96,9 +95,6 @@ public class UnderstandService
         }
 
         //System.out.println(g.getGraph().edgeSet().size());
-
-
-        g.closure();
         return g;
     }
 
