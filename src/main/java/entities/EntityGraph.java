@@ -96,6 +96,31 @@ public class EntityGraph {
         TransitiveClosure.INSTANCE.closeSimpleDirectedGraph(g);
     }
 
+    public EntityGraph findSubgraph(String vertexList)
+    {
+        EntityGraph g = new EntityGraph();
 
+        for(String e : vertexList.split(","))
+        {
+            if(this.g.containsVertex(e))
+            {
+                g.addVertex(e);
+            }
+        }
+        for (Object vertex1 : g.getGraph().vertexSet())
+        {
+            String v1 = (String)vertex1;
+            for(Object vertex2 : g.getGraph().vertexSet())
+            {
+                String v2 = (String)vertex2;
+                if(this.g.containsEdge(v1,v2))
+                {
+                    g.addEdge(v1,v2);
+                }
+            }
+        }
+
+        return g;
+    }
 
 }

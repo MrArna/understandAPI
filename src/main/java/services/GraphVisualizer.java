@@ -38,7 +38,7 @@ public class GraphVisualizer
 
     public int consoleCoupleVisualizer(EntityGraph g)
     {
-        System.out.println("\n****** PROJECT CALL GRAPH DEPENDENCIES ******\n");
+        System.out.println("\n** PROJECT CLASS DEPENDENCIES **\n");
 
         for(Object vertex : g.getGraph().vertexSet())
         {
@@ -54,10 +54,29 @@ public class GraphVisualizer
         return 0;
     }
 
+    public int consoleCallVisualizer(EntityGraph g)
+    {
+        System.out.println("\n** PROJECT CALL GRAPH DEPENDENCIES **\n");
+
+        for(Object vertex : g.getGraph().vertexSet())
+        {
+            String v = (String) vertex;
+
+            System.out.println("METHOD " + v + " CALL BY:");
+            for(Object neighbor : g.getNeighbor(v))
+            {
+                System.out.println("---> METHOD " + (String)neighbor);
+            }
+        }
+
+        return 0;
+    }
+
+
 
     public int consoleInterfaceDependenciesVisualizer(EntityGraph g)
     {
-        System.out.println("\n****** PROJECT INTERFACE DEPENDENCIES ******\n");
+        System.out.println("\n** PROJECT INTERFACE HIERARCHY **\n");
 
         for(Object vertex : g.getGraph().vertexSet())
         {
@@ -75,7 +94,7 @@ public class GraphVisualizer
 
     public int consoleInterfaceImplementationVisualizer(EntityGraph g)
     {
-        System.out.println("\n****** PROJECT INTERFACE IMPLEMENTATION ******\n");
+        System.out.println("\n** PROJECT INTERFACE IMPLEMENTATION **\n");
 
         for(Object vertex : g.getGraph().vertexSet())
         {
@@ -95,7 +114,7 @@ public class GraphVisualizer
 
     public int consoleClassDependenciesVisualizer(EntityGraph g)
     {
-        System.out.println("\n****** PROJECT CLASS DEPENDENCIES ******\n");
+        System.out.println("\n** PROJECT CLASS HIERARCHY **\n");
 
         for(Object vertex : g.getGraph().vertexSet())
         {
@@ -122,8 +141,9 @@ public class GraphVisualizer
                         new AlwaysEqualComparator()
                 );
 
-        System.out.println(inspector.isomorphismExists());
+        //System.out.println(inspector.isomorphismExists());
 
+        int i = 0;
 
         if(inspector.isomorphismExists())
         {
@@ -137,6 +157,7 @@ public class GraphVisualizer
                 if(correspondece == null)
                 {
                     System.out.println("---> " + v + " not in subversion");
+                    i++;
                 }
             }
         }
@@ -144,7 +165,26 @@ public class GraphVisualizer
         {
             System.out.println("\n No Isomorphism found \n");
         }
+
+
+        if(i == g1.getGraph().vertexSet().size())
+        {
+            System.out.println("\n No difference between two version \n");
+        }
         return  0;
+    }
+
+
+
+    public int consoleVertexVisualize(EntityGraph g)
+    {
+        String s = "";
+        for(Object vertex : g.getGraph().vertexSet())
+        {
+            s = s + " " + vertex.toString();
+        }
+        System.out.println(s);
+        return 1;
     }
 
 

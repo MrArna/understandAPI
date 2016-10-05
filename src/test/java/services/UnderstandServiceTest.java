@@ -37,15 +37,13 @@ public class UnderstandServiceTest extends TestCase {
         us.addDB(v1path);
         us.addDB(v2path);
 
-        for(Object edge : us.findJavaGraph(v1path,"im").getGraph().edgeSet())
+        for(Object edge : us.findJavaGraph(v1path,"mc").getGraph().edgeSet())
         {
             System.out.println(edge.toString());
         }
 
 
         assertNotNull(us.findJavaGraph(v1path,"i"));
-        assertNotNull(us.findJavaGraph(v1path,"c"));
-        assertNotNull(us.findJavaGraph(v1path,"cg"));
     }
 
 }

@@ -53,11 +53,14 @@ public class UnderstandService
                 entityType = "Java Class Member Type";
                 edgeLabel = "extended by";
                 break;
-            case "cg":
+            case "cd":
                 referenceType = "Java Couple";
                 entityType = "Java Class Member Type";
                 edgeLabel = "called by";
                 break;
+            case "mc":
+                referenceType = "Java Callby";
+                entityType = "Java Method Member";
         }
 
         Entity[] entsArray = db.ents(entityType);
@@ -76,7 +79,7 @@ public class UnderstandService
 
         for(Entity e : entsList)
         {
-            g.addVertex(e.name());
+            g.addVertex(e.simplename());
             if(option.equals("im"))
                 entityType = "Java Class Member Type";
 
@@ -88,8 +91,8 @@ public class UnderstandService
                 Entity cEnt = cRef.ent();
                 if(cEnt.library().equals("") && !cEnt.name().equals(e.name()))
                 {
-                    g.addVertex(cEnt.name());
-                    g.addEdge(e.name(),cEnt.name());
+                    g.addVertex(cEnt.simplename());
+                    g.addEdge(e.simplename(),cEnt.simplename());
                 }
             }
         }

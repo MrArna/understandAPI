@@ -28,11 +28,6 @@ public class Main {
         Options options = new Options();
         options.addOption("v1", "version1", true, "Path to the Understand udb file of version 1");
         options.addOption("v2", "version2", true, "Path to the Understand udb file of version 1");
-        options.addOption("i", "interface", false, "Show interface graph");
-        options.addOption("c", "class",false,"Show class inheritance");
-        options.addOption("cg","call-graph",false,"Show call-graph");
-
-
 
 
         try {
@@ -73,12 +68,14 @@ public class Main {
             reader = new Scanner(System.in);
             System.out.println
                     (
-                            "1. Show Interface dependencies\n" +
+                            "1. Show Interface hierarchy\n" +
                             "2. Show Interface Implementation\n" +
-                            "3. Show Class dependencies\n" +
-                            "4. Show Call Graph\n" +
-                            "5. Show difference between versions\n" +
-                            "6. Exit\n\n" +
+                            "3. Show Class hierarchy\n" +
+                            "4. Show Class dependency\n" +
+                            "5. Show Call Graph\n" +
+                            "6. Show closure over type\n" +
+                            "7. Show difference between versions\n" +
+                            "8. Exit\n\n" +
                             "Your decision: "
                     );
 
@@ -95,9 +92,9 @@ public class Main {
                 case 1:
                     g1 = us.findJavaGraph(v1path, "i");
                     g2 = us.findJavaGraph(v2path, "i");
-                    System.out.println("\n*** VERSION 1 ***\n");
+                    System.out.println("\n******** VERSION 1 ********\n");
                     gv.consoleInterfaceDependenciesVisualizer(g1);
-                    System.out.println("\n*** VERSION 2 ***\n");
+                    System.out.println("\n******** VERSION 2 ********\n");
                     gv.consoleInterfaceDependenciesVisualizer(g2);
 
                     System.out.println("\n Applying closure? [1/0] ");
@@ -105,9 +102,9 @@ public class Main {
                     if (c == 1) {
                         g1.closure();
                         g2.closure();
-                        System.out.println("\n*** VERSION 1 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 1 WITH CLOSURE ********\n");
                         gv.consoleInterfaceDependenciesVisualizer(g1);
-                        System.out.println("\n*** VERSION 2 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 2 WITH CLOSURE ********\n");
                         gv.consoleInterfaceDependenciesVisualizer(g2);
                     }
 
@@ -115,9 +112,9 @@ public class Main {
                 case 2:
                     g1 = us.findJavaGraph(v1path, "im");
                     g2 = us.findJavaGraph(v2path, "im");
-                    System.out.println("\n*** VERSION 1 ***\n");
+                    System.out.println("\n******** VERSION 1 ********\n");
                     gv.consoleInterfaceImplementationVisualizer(g1);
-                    System.out.println("\n*** VERSION 2 ***\n");
+                    System.out.println("\n******** VERSION 2 ********\n");
                     gv.consoleInterfaceImplementationVisualizer(g2);
 
                     System.out.println("\n Applying closure? [1/0] ");
@@ -125,18 +122,18 @@ public class Main {
                     if (c == 1) {
                         g1.closure();
                         g2.closure();
-                        System.out.println("\n*** VERSION 1 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 1 WITH CLOSURE ********\n");
                         gv.consoleInterfaceImplementationVisualizer(g1);
-                        System.out.println("\n*** VERSION 2 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 2 WITH CLOSURE ********\n");
                         gv.consoleInterfaceImplementationVisualizer(g2);
                     }
                     break;
                 case 3:
                     g1 = us.findJavaGraph(v1path, "c");
                     g2 = us.findJavaGraph(v2path, "c");
-                    System.out.println("\n*** VERSION 1 ***\n");
+                    System.out.println("\n******** VERSION 1 ********\n");
                     gv.consoleClassDependenciesVisualizer(g1);
-                    System.out.println("\n*** VERSION 2 ***\n");
+                    System.out.println("\n******** VERSION 2 ********\n");
                     gv.consoleClassDependenciesVisualizer(g2);
 
                     System.out.println("\n Applying closure? [1/0] ");
@@ -144,18 +141,18 @@ public class Main {
                     if (c == 1) {
                         g1.closure();
                         g2.closure();
-                        System.out.println("\n*** VERSION 1 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 1 WITH CLOSURE ********\n");
                         gv.consoleClassDependenciesVisualizer(g1);
-                        System.out.println("\n*** VERSION 2 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 2 WITH CLOSURE ********\n");
                         gv.consoleClassDependenciesVisualizer(g2);
                     }
                     break;
                 case 4:
-                    g1 = us.findJavaGraph(v1path, "cg");
-                    g2 = us.findJavaGraph(v2path, "cg");
-                    System.out.println("\n*** VERSION 1 ***\n");
+                    g1 = us.findJavaGraph(v1path, "cd");
+                    g2 = us.findJavaGraph(v2path, "cd");
+                    System.out.println("\n******** VERSION 1 ********\n");
                     gv.consoleCoupleVisualizer(g1);
-                    System.out.println("\n*** VERSION 2 ***\n");
+                    System.out.println("\n******** VERSION 2 ********\n");
                     gv.consoleCoupleVisualizer(g2);
 
                     System.out.println("\n Applying closure? [1/0] ");
@@ -163,31 +160,73 @@ public class Main {
                     if (c == 1) {
                         g1.closure();
                         g2.closure();
-                        System.out.println("\n*** VERSION 1 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 1 WITH CLOSURE ********\n");
                         gv.consoleCoupleVisualizer(g1);
-                        System.out.println("\n*** VERSION 2 WITH CLOSURE ***\n");
+                        System.out.println("\n******** VERSION 2 WITH CLOSURE ********\n");
                         gv.consoleCoupleVisualizer(g2);
                     }
                     break;
                 case 5:
-                    System.out.println
-                            (
-                                    "\n Which difference do you want to visualize? \n\n" +
-                                    "1. Interface\n" +
-                                    "2. Interface implementation\n" +
-                                    "3. Class\n" +
-                                    "4. Call graph\n" +
-                                    "5. Go back\n\n"
-                            );
-                    System.out.println("Your decision: ");
-                    int n2 = reader.nextInt();
-                    while (n2 > 5 && n2 < 1) {
-                        System.out.println("Your decision: ");
-                        n2 = reader.nextInt();
+                    g1 = us.findJavaGraph(v1path, "mc");
+                    g2 = us.findJavaGraph(v2path, "mc");
+                    System.out.println("\n******** VERSION 1 ********\n");
+                    gv.consoleCallVisualizer(g1);
+                    System.out.println("\n******** VERSION 2 ********\n");
+                    gv.consoleCallVisualizer(g2);
+
+                    System.out.println("\n Applying closure? [1/0] ");
+                    c = reader.nextInt();
+                    if (c == 1) {
+                        g1.closure();
+                        g2.closure();
+                        System.out.println("\n******** VERSION 1 WITH CLOSURE ********\n");
+                        gv.consoleCallVisualizer(g1);
+                        System.out.println("\n******** VERSION 2 WITH CLOSURE ********\n");
+                        gv.consoleCallVisualizer(g2);
                     }
-                    manageDiffdecision(n2);
                     break;
                 case 6:
+                    int n3 = 0;
+                    while (n3 != 4) {
+                        System.out.println
+                                (
+                                        "\n Which kind of entity do you want to choose? \n\n" +
+                                                "1. Interface\n" +
+                                                "2. Class\n" +
+                                                "3. Method\n" +
+                                                "4. Go back\n\n"
+                                );
+                        System.out.println("Your decision: ");
+                        n3 = reader.nextInt();
+                        while (n3 > 4 && n3 < 1) {
+                            System.out.println("Your decision: ");
+                            n3 = reader.nextInt();
+                        }
+                        manageClosureDecision(n3);
+                    }
+                    break;
+                case 7:
+                    int n2 = 0;
+                    while (n2 != 5) {
+                        System.out.println
+                                   (
+                                           "\n Which difference do you want to visualize? \n\n" +
+                                           "1. Interface\n" +
+                                           "2. Interface implementation\n" +
+                                           "3. Class\n" +
+                                           "4. Call graph\n" +
+                                           "5. Go back\n\n"
+                                   );
+                       System.out.println("Your decision: ");
+                       n2 = reader.nextInt();
+                       while (n2 > 5 && n2 < 1) {
+                           System.out.println("Your decision: ");
+                           n2 = reader.nextInt();
+                       }
+                       manageDiffdecision(n2);
+                    }
+                    break;
+                case 8:
                     System.out.println("Have a nice day :)");
                     System.exit(0);
                     break;
@@ -197,6 +236,48 @@ public class Main {
 
     }
 
+    private static void manageClosureDecision(int decision)
+    {
+        String input;
+
+        System.out.print("\nOn which version of the code? [1/2]");
+        int v = 0;
+        while (v != 1 && v != 2) {
+             v = reader.nextInt();
+        }
+        String path = v == 1 ? v1path : v2path;
+        System.out.println("\n\nThese are the available type for the selected kind:\n");
+
+        switch(decision)
+        {
+            case 1:
+                g1 = us.findJavaGraph(path,"i");
+                gv.consoleVertexVisualize(g1);
+                System.out.println("\nType your selected types separated by ',' e.g.[A,B,C]:");
+                input = reader.next();
+                g1.closure();
+                gv.consoleInterfaceDependenciesVisualizer(g1.findSubgraph(input));
+                break;
+            case 2:
+                g1 = us.findJavaGraph(path,"c");
+                gv.consoleVertexVisualize(g1);
+                System.out.println("\nType your selected types separated by ',' e.g.[A,B,C]:");
+                input = reader.next();
+                g1.closure();
+                gv.consoleClassDependenciesVisualizer(g1.findSubgraph(input));
+                break;
+            case 3:
+                g1 = us.findJavaGraph(path,"mc");
+                gv.consoleVertexVisualize(g1);
+                System.out.println("\nType your selected types separated by ',' e.g.[A,B,C]:");
+                input = reader.next();
+                g1.closure();
+                gv.consoleCallVisualizer(g1.findSubgraph(input));
+                break;
+            case 4:
+                return;
+        }
+    }
 
 
     private static void manageDiffdecision(int decision)
@@ -219,6 +300,8 @@ public class Main {
                 g1 = us.findJavaGraph(v1path,"cg");
                 g2 = us.findJavaGraph(v2path,"cg");
                 break;
+            case 5:
+                return;
         }
 
         System.out.println("\n Applying closure before differentiating? [1/0] ");
@@ -228,7 +311,7 @@ public class Main {
             g1.closure();
             g2.closure();
         }
-        System.out.println("\n*** DIFFERENCE IN VERSION ***\n");
+        System.out.println("\n******** DIFFERENCE IN VERSION ********\n");
         gv.computeIsomorphism(g1,g2);
     }
 }
