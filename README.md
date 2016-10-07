@@ -43,7 +43,7 @@ The application expose an UI via terminal, enabling the user to choose different
 Your decision: 
 ~~~~
 
-The first 3 options and the 5th are self explanatory. The 4th allows to analyze how the classes are coupled, it is building over the "Couple" reference kind provided by Understand API user manual. The 6th allows the user to choose a set of types from a given list of types retrieved by the analyzed app ant to compute and close the graph only over them. The 7th show different between the two apps passed via command line parameters.
+The first 3 options and the 5th are self explanatory. The 4th allows to analyze how the classes are coupled, it is building over the "Couple" reference kind provided by Understand API user manual. The 6th allows the user to choose a set of types from a given list of types retrieved by the analyzed app ant to compute and close the graph only over them. The 7th show difference between the two apps passed via command line parameters, it exploit isomorphism to find the difference. Since in JGrapht the isomorphism is computed over the graph for all the possibile substructure, it requires a lot of time to complete. I suggest to not use this functionality over a huge project, it may cause exception raising.
 
 #Usage
 ----------------
@@ -60,10 +60,11 @@ It's important that the path doesn't contain white spaces.
 The tests and the application were developed in a OS X environment.
 
 #### JUnit
-All the tests were made automated by using JUnit. 
+All the tests were made automated by using JUnit. In particular these test were used to ensure the correct behavior of the service and entities classes. To evaluate the service classes two UDBs extracted by the a two simple fake applications were used. They are located in the resources folder under the test. 
 
 #### Other test
+Another test, in order to validate the overall application, was made running it over a project retrieved from [OpenHub](https://www.openhub.net). The following application, a game developed in Java, was evaluated in two consecutive versions: [Marauroa](https://www.openhub.net/p/marauroa). The corresponding UDB files are located in the resources folder under "main.java".
 
 #Acknowledgments
 ---------------
-Some inspiration was taken by the [Eclipse JDT Tutorial](http://www.programcreek.com/2011/01/best-java-development-tooling-jdt-and-astparser-tutorials/). The code was rewritten and readapted in order to implement the described functionalities.
+Some inspiration was taken by the [Understand API user guide](http://scitools.com/documents/manuals/pdf/understand.pdf). The code was rewritten and readapted in order to implement the described functionalities.
