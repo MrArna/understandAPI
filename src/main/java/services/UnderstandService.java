@@ -77,6 +77,7 @@ public class UnderstandService
         }
 
 
+        //for each entity retrive its references of a given kind
         for(Entity e : entsList)
         {
             g.addVertex(e.simplename());
@@ -84,6 +85,8 @@ public class UnderstandService
                 entityType = "Java Class Member Type";
 
             Reference[] paramterRefs = e.refs(referenceType, entityType, true);
+            //for each references retrieve the linked entity of a give type and add the
+            //relationship to the graph
             for (Reference cRef : paramterRefs)
             {
 

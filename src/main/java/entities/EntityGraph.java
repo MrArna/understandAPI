@@ -80,6 +80,7 @@ public class EntityGraph {
     {
         List<String> neighbors = new ArrayList<>();
 
+        //for each edge of the given node, find the target of this edge different from itself
         for(Object edge : g.edgesOf(e))
         {
             String target = (String)g.getEdgeTarget(edge);
@@ -100,6 +101,7 @@ public class EntityGraph {
     {
         EntityGraph g = new EntityGraph();
 
+        //retrieve the vertex
         for(String e : vertexList.split(","))
         {
             if(this.g.containsVertex(e))
@@ -107,6 +109,8 @@ public class EntityGraph {
                 g.addVertex(e);
             }
         }
+        //for each vertex from the subgraph if there is an edge in the original graph,
+        //add it to the subgraph
         for (Object vertex1 : g.getGraph().vertexSet())
         {
             String v1 = (String)vertex1;

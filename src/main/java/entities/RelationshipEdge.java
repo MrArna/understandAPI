@@ -5,6 +5,7 @@ import org.jgrapht.graph.DefaultEdge;
 /**
  * Created by Marco on 24/09/16.
  */
+//class representing an edge between 2 edges of a V given kind
 public class RelationshipEdge<V> extends DefaultEdge
 {
     private V v1;

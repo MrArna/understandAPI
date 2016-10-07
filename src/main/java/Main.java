@@ -203,6 +203,7 @@ public class Main {
                             n3 = reader.nextInt();
                         }
                         manageClosureDecision(n3);
+                        n3 = 0;
                     }
                     break;
                 case 7:
@@ -219,11 +220,13 @@ public class Main {
                                    );
                        System.out.println("Your decision: ");
                        n2 = reader.nextInt();
-                       while (n2 > 5 && n2 < 1) {
+                       while (n2 > 5 && n2 < 1)
+                       {
                            System.out.println("Your decision: ");
                            n2 = reader.nextInt();
                        }
-                       manageDiffdecision(n2);
+                        manageDiffdecision(n2);
+                        n2 = 0;
                     }
                     break;
                 case 8:

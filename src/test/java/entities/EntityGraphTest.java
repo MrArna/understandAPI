@@ -2,6 +2,9 @@ package entities;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -25,7 +28,27 @@ public class EntityGraphTest {
 
         System.out.println(eg.getNeighbor("E").toString());
 
-        assertEquals(eg.getNeighbor("E").size(),0);
+        assertEquals(0,eg.getNeighbor("E").size());
+    }
+
+    @Test
+    public void subGraphTest() throws Exception
+    {
+        EntityGraph eg = new EntityGraph();
+
+        eg.addVertex("A");
+        eg.addVertex("B");
+        eg.addVertex("C");
+        eg.addVertex("D");
+        eg.addVertex("E");
+        eg.addEdge("B","E");
+        eg.addEdge("C","D");
+        eg.addEdge("E","C");
+
+        eg.closure();
+        System.out.println(eg.findSubgraph("B,C").getGraph().edgeSet());
+
+        assertEquals(1,eg.findSubgraph("B,C").getGraph().edgeSet().size());
     }
 
 }
