@@ -43,7 +43,7 @@ The application expose an UI via terminal, enabling the user to choose different
 Your decision: 
 ~~~~
 
-The first 3 options and the 5th are self explanatory. The 4th allows to analyze how the classes are coupled, it is building over the "Couple" reference kind provided by Understand API user manual. The 6th allows the user to choose a set of types from a given list of types retrieved by the analyzed app ant to compute and close the graph only over them. The 7th show difference between the two apps passed via command line parameters, it exploit isomorphism to find the difference. Since in JGrapht the isomorphism is computed over the graph for all the possibile substructure, it requires a lot of time to complete. I suggest to not use this functionality over a huge project, it may cause exception raising.
+The first 3 options and the 5th are self explanatory. The 4th allows to analyze how the classes are coupled, it is building over the "Couple" reference kind provided by Understand API user manual. The 6th allows the user to choose a set of types from a given list of types retrieved by the analyzed app and to compute and close the graph only over them, if a wrong type is passed, it is simply ignored. The 7th show difference between the two apps passed via command line parameters, it exploit isomorphism to find the difference. __Since in JGrapht the isomorphism is computed over the graph for all the possibile substructure, it requires a lot of time to complete. I suggest to not use this functionality over a huge project, it may cause exception raising.__
 
 #Usage
 ----------------
