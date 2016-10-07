@@ -48,6 +48,11 @@ The first 3 options and the 5th are self explanatory. The 4th allows to analyze 
 #Usage
 ----------------
 
+######PREREQUISITES
+
+Understand should be installed and configured in the hosting system. A tutorial for OS X could be found on Piazza.
+
+######USE
 To use the application, open the terminal and type as the following snippet of code, from the folder where the jar is located:
 
 `java -jar `
