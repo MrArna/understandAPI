@@ -11,70 +11,59 @@ Using the Understand API calls, your program will process these versions and con
 #Development & Design choices
 -----------------
 The application was developed with IntelliJ, with the use of SBT in order to manage the libraries and to create a fat jar. It has been designed in order to be as extendable as possible.
-In detail, it's composed by 3 classes:
+In detail, it's composed by 2 modules and different classes:
 
-+ **main.Main**: this is the the core of the application, where the other classes are instantiated and used
-+ **visitor.HalsteadVisitor**: this class extends the ASTVisitor class, in this way its possible to exploit polymorphism and use this custom class during the parsing by compilation unit. This class is in charge to visit the project structure, retrieve the files, parse them and count operands and operators. In order to achieve this last functionality several overloading versions of the method visit are provided. Each of those it's called when the AST node of the respective type is visited
-+ **measure.HalsteadComplexity**: this class implements and provide all the measures being part of the Halstead Complexity
++ *Main*: this is the the core of the application, where the other classes are instantiated and used. It is in charge to expose a UI to the user and to call the right methods depending on the user choices.
++ **Entities**: this module contains the classes representing the graph and its edges
+    + *RelationshipEdge*: this class represent an edge between two nodes and it relationship. The node type is parametric.
+    + *EnityGraph*: this class represents the entity graph. It provides methods to populate and create the graph with edges and nodes. It also provide methods in order to apply the closure over the graph and retrieving a subgraph given a list of nodes.
++ **Services**: this module contains useful classes to visualize graph and to use Understand APIs.
+    + *GraphVisualizer*: this class provide method to visualize graph in a graphical way via terminal. It also provides a method to find and represent isomorphism between two graphs.
+    + *UnderstandService*: this class is in charge to manage the Understan APIs. In particular it provides methods to load ".udb" databases and to query over them. It also provides methods that integrate different API calls in order to retrive a graph of the specified relationship.
 
 Further information about the methods and their behaviors can be found in the comment inside the code.
 
-Functionalities
+#Functionalities
 ----------------
+The application analyze two ".udb" files of a two given Java application.
+The application expose an UI via terminal, enabling the user to choose different relationship on which building a graph. In details:
 
-The application parse Java files up to JSL8 version. It identifies the basic 36 operators.
+~~~~
+------> VERSION ANALIZER <------
 
-`=   >   <   !   ~   ?   :   -> 
- ==  >=  <=  !=  &&  ||  ++  --
- +   -   *   /   &   |   ^   %   <<   >>   >>>
- +=  -=  *=  /=  &=  |=  ^=  %=  <<=  >>=  >>>=`
+1. Show Interface hierarchy
+2. Show Interface Implementation
+3. Show Class hierarchy
+4. Show Class dependency
+5. Show Call Graph
+6. Show closure over type
+7. Show difference between versions
+8. Exit
 
-And their operands, such as variables and functions.
-As names are considered only variables and methods declared by the user.
+Your decision: 
+~~~~
 
-Usage
+The first 3 options and the 5th are self explanatory. The 4th allows to analyze how the classes are coupled, it is building over the "Couple" reference kind provided by Understand API user manual. The 6th allows the user to choose a set of types from a given list of types retrieved by the analyzed app ant to compute and close the graph only over them. The 7th show different between the two apps passed via command line parameters.
+
+#Usage
 ----------------
 
 To use the application, open the terminal and type as the following snippet of code, from the folder where the jar is located:
 
-`java -jar cs474-hw1-HW1-ArnaboldiMarco-1.1.jar path/to/project/root`
+`java -jar `
 
 It's important that the path doesn't contain white spaces.
 
-Test
+#Test
 ----------------
 
 The tests and the application were developed in a OS X environment.
 
 #### JUnit
-All the tests were made automated by using JUnit. In particular a test suite for each of the *measure.HalsteadComplexity* and the *visitor.HalsteadVisitor* class were made. Each methods of both of them was tested except for the visitor methods since they were already safe. These tests are executed over a simple test case inside the resources folder. They ensure the correctness of the classes and their methods.
+All the tests were made automated by using JUnit. 
 
 #### Other test
-Another test, in order to validate the overall application, was made running it over a project retrieved from [OpenHub](https://www.openhub.net). The following application, a game developed in Java, was evaluated using the Halstead Complexity measures: [Marauroa](https://www.openhub.net/p/marauroa).
-In order to run this test, proceed to the root of the project from the terminal an launch the following command:
 
-`java -jar cs474-hw1-HW1-ArnaboldiMarco-1.1.jar marauroa-3.9.2/`
-
-The result should be as follow:
-
-~~~~
-******* HALSTEAD COMPLEXITY MEASURES *******
-
-Distinct operands = 1702
-Distinct operators = 29
-Total operands = 32546
-Total Operators = 3099
-Program Vocabulary = 1731.0
-Program Length = 35645.0
-Calculated program Length = 18408.473526368212
-Volume = 278849.6756733894
-Difficult = 90939.62068965517
-Effort = 2.53584837351714E10
-Time required = 1.4088046519539666E9 seconds
-Bugs delivered = 92.9498918911298
-*********************************************
-~~~~
-
-Acknowledgments
+#Acknowledgments
 ---------------
 Some inspiration was taken by the [Eclipse JDT Tutorial](http://www.programcreek.com/2011/01/best-java-development-tooling-jdt-and-astparser-tutorials/). The code was rewritten and readapted in order to implement the described functionalities.
