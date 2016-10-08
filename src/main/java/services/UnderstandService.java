@@ -92,10 +92,17 @@ public class UnderstandService
 
                 //System.out.println(cRef.toString());
                 Entity cEnt = cRef.ent();
-                if(cEnt.library().equals("") && !cEnt.name().equals(e.name()))
+                if(cEnt.library().equals("") && !cEnt.simplename().equals(e.simplename()))
                 {
-                    g.addVertex(cEnt.simplename());
-                    g.addEdge(e.simplename(),cEnt.simplename());
+                    try
+                    {
+                        g.addVertex(cEnt.simplename());
+                        g.addEdge(e.simplename(), cEnt.simplename());
+                    } catch (IllegalArgumentException excp)
+                    {
+                        System.out.println(cEnt.simplename() + " " + e.simplename());
+                        System.exit(2);
+                    }
                 }
             }
         }

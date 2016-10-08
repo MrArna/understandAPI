@@ -21,7 +21,7 @@ public class Main {
     private static Scanner reader;
 
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws URISyntaxException {
         CommandLineParser parser = new DefaultParser();
 
 
@@ -30,11 +30,12 @@ public class Main {
         options.addOption("v2", "version2", true, "Path to the Understand udb file of version 1");
 
 
+        v1path = Main.class.getResource("SimpleProject.udb").toURI().getPath();
+        v2path = Main.class.getResource("SimpleProjectV2.udb").toURI().getPath();
+
         try {
             // parse the command line arguments
             CommandLine line = parser.parse(options, args);
-
-
 
             // validate that block-size has been set
             if (line.hasOption("v1") && line.hasOption("v2")) {
@@ -203,7 +204,6 @@ public class Main {
                             n3 = reader.nextInt();
                         }
                         manageClosureDecision(n3);
-                        n3 = 0;
                     }
                     break;
                 case 7:
@@ -226,7 +226,6 @@ public class Main {
                            n2 = reader.nextInt();
                        }
                         manageDiffdecision(n2);
-                        n2 = 0;
                     }
                     break;
                 case 8:
@@ -242,15 +241,18 @@ public class Main {
     private static void manageClosureDecision(int decision)
     {
         String input;
+        String path = "";
 
-        System.out.print("\nOn which version of the code? [1/2]");
-        int v = 0;
-        while (v != 1 && v != 2) {
-             v = reader.nextInt();
+        if(decision != 4)
+        {
+            System.out.print("\nOn which version of the code? [1/2]");
+            int v = 0;
+            while (v != 1 && v != 2) {
+                v = reader.nextInt();
+            }
+            path = v == 1 ? v1path : v2path;
+            System.out.println("\n\nThese are the available type for the selected kind:\n");
         }
-        String path = v == 1 ? v1path : v2path;
-        System.out.println("\n\nThese are the available type for the selected kind:\n");
-
         switch(decision)
         {
             case 1:
