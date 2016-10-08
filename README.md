@@ -55,9 +55,9 @@ Understand should be installed and configured in the hosting system. A tutorial 
 ######USE
 To use the application, open the terminal and type as the following snippet of code, from the folder where the jar is located:
 
-`java -jar `
+`java -jar understandAnalizer-Arnaboldi-assembly-final.jar [-v1 path/to/version/1/udbfile -v2 path/to/version/2/udbfile]`
 
-It's important that the path doesn't contain white spaces.
+It's important that the path doesn't contain white spaces. If the two version are not specified, the application runs in tutorial mode, two standard example are loaded from the resources in the fat jar.
 
 #Test
 ----------------
@@ -68,7 +68,7 @@ The tests and the application were developed in a OS X environment.
 All the tests were made automated by using JUnit. In particular these test were used to ensure the correct behavior of the service and entities classes. To evaluate the service classes two UDBs extracted by the a two simple fake applications were used. They are located in the resources folder under the test. 
 
 #### Other test
-Another test, in order to validate the overall application, was made running it over a project retrieved from [OpenHub](https://www.openhub.net). The following application, a game developed in Java, was evaluated in two consecutive versions: [Marauroa](https://www.openhub.net/p/marauroa). The corresponding UDB files are located in the resources folder under "main.java".
+Another test, in order to validate the overall application, was made running it over a project retrieved from [OpenHub](https://www.openhub.net). The following application, a game developed in Java, was evaluated in two consecutive versions: [Marauroa](https://www.openhub.net/p/marauroa). The corresponding UDB files are located in the resources folder under "main.java". The UDB files for this project can be found in the root of the repository.
 
 #Acknowledgments
 ---------------
