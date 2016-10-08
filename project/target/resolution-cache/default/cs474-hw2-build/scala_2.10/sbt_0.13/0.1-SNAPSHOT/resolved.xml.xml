@@ -4,7 +4,7 @@
 		module="cs474-hw2-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20161008134229"
+		publication="20161008142732"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>

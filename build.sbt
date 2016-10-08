@@ -5,6 +5,8 @@ lazy val commonSettings = Seq(
 
 mainClass in (Compile, run) := Some("Main")
 
+parallelExecution in Test := false
+
 crossPaths := false
 
 autoScalaLibrary := false
