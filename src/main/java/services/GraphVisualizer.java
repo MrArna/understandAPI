@@ -4,10 +4,7 @@ import entities.EntityGraph;
 import org.jgrapht.GraphMapping;
 import org.jgrapht.alg.isomorphism.VF2SubgraphIsomorphismInspector;
 import org.jgrapht.alg.util.AlwaysEqualComparator;
-import org.jgrapht.ext.JGraphModelAdapter;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.Iterator;
 
 /**
@@ -15,23 +12,10 @@ import java.util.Iterator;
  */
 public class GraphVisualizer
 {
-    private static final Integer WIDTH = new Double(Toolkit.getDefaultToolkit().getScreenSize().getWidth()).intValue();
-    private static final Integer HEIGHT = new Double(Toolkit.getDefaultToolkit().getScreenSize().getHeight()).intValue();
-    private static final Integer BOX_WIDTH = WIDTH / 10;
-
-    private static final Color     DEFAULT_BG_COLOR = Color.decode( "#FAFBFF" );
-    private static final Dimension DEFAULT_SIZE = new Dimension( WIDTH, HEIGHT);
-
-    private JFrame frame;
-
-
-    private JGraphModelAdapter m_jgAdapter;
-
 
     public GraphVisualizer()
     {
         super();
-        frame = new JFrame();
     }
 
 

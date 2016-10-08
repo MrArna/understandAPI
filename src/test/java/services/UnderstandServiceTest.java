@@ -1,13 +1,14 @@
 package services;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
-/**
- * Created by Marco on 01/10/16.
- */
-public class UnderstandServiceTest extends TestCase {
+import static org.junit.Assert.*;
 
+/**
+ * Created by Marco on 08/10/16.
+ */
+public class UnderstandServiceTest
+{
 
     private UnderstandService us;
 
@@ -17,8 +18,8 @@ public class UnderstandServiceTest extends TestCase {
     {
         us = new UnderstandService();
 
-        String v1path = ClassLoader.getSystemClassLoader().getResource("SimpleProject.udb").toURI().getPath();
-        String v2path = ClassLoader.getSystemClassLoader().getResource("SimpleProjectV2.udb").toURI().getPath();
+        String v1path = UnderstandServiceTest.class.getResource("/SimpleProject.udb").toURI().getPath();
+        String v2path = UnderstandServiceTest.class.getResource("/SimpleProjectV2.udb").toURI().getPath();
 
         us.addDB(v1path);
         us.addDB(v2path);
@@ -31,8 +32,8 @@ public class UnderstandServiceTest extends TestCase {
     {
         us = new UnderstandService();
 
-        String v1path = ClassLoader.getSystemClassLoader().getResource("SimpleProject.udb").toURI().getPath();
-        String v2path =ClassLoader.getSystemClassLoader().getResource("SimpleProjectV2.udb").toURI().getPath();
+        String v1path = UnderstandServiceTest.class.getResource("/SimpleProject.udb").toURI().getPath();
+        String v2path = UnderstandServiceTest.class.getResource("/SimpleProjectV2.udb").toURI().getPath();
 
         us.addDB(v1path);
         us.addDB(v2path);

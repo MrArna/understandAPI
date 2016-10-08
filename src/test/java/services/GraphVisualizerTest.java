@@ -23,8 +23,8 @@ public class GraphVisualizerTest
         us = new UnderstandService();
         gv = new GraphVisualizer();
 
-        String v1path = this.getClass().getResource("/SimpleProject.udb").toURI().getPath();
-        String v2path = this.getClass().getResource("/SimpleProjectV2.udb").toURI().getPath();
+        String v1path = GraphVisualizer.class.getResource("/SimpleProject.udb").toURI().getPath();
+        String v2path = GraphVisualizer.class.getResource("/SimpleProjectV2.udb").toURI().getPath();
 
         us.addDB(v1path);
         us.addDB(v2path);
@@ -43,7 +43,7 @@ public class GraphVisualizerTest
         us = new UnderstandService();
         gv = new GraphVisualizer();
 
-        String v1path = this.getClass().getResource("/SimpleProject.udb").toURI().getPath();
+        String v1path = GraphVisualizer.class.getResource("/SimpleProject.udb").toURI().getPath();
 
         System.out.println(v1path);
 
@@ -61,7 +61,7 @@ public class GraphVisualizerTest
         us = new UnderstandService();
         gv = new GraphVisualizer();
 
-        String v1path = this.getClass().getResource("/SimpleProject.udb").toURI().getPath();
+        String v1path = GraphVisualizer.class.getResource("/SimpleProject.udb").toURI().getPath();
 
         System.out.println(v1path);
 
@@ -79,8 +79,8 @@ public class GraphVisualizerTest
         us = new UnderstandService();
         gv = new GraphVisualizer();
 
-        String v1path = this.getClass().getResource("/SimpleProject.udb").toURI().getPath();
-        String v2path = this.getClass().getResource("/SimpleProjectV2.udb").toURI().getPath();
+        String v1path = GraphVisualizer.class.getResource("/SimpleProject.udb").toURI().getPath();
+        String v2path = GraphVisualizer.class.getResource("/SimpleProjectV2.udb").toURI().getPath();
 
         us.addDB(v1path);
         us.addDB(v2path);
@@ -98,8 +98,8 @@ public class GraphVisualizerTest
         us = new UnderstandService();
         gv = new GraphVisualizer();
 
-        String v1path = this.getClass().getResource("/SimpleProject.udb").toURI().getPath();
-        String v2path = this.getClass().getResource("/SimpleProjectV2.udb").toURI().getPath();
+        String v1path = GraphVisualizer.class.getResource("/SimpleProject.udb").toURI().getPath();
+        String v2path = GraphVisualizer.class.getResource("/SimpleProjectV2.udb").toURI().getPath();
 
         us.addDB(v1path);
         us.addDB(v2path);
