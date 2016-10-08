@@ -1,1 +1,11 @@
-target/*
+target/
+.idea/.name
+hs_err_pid94217.log
+project/project/target/config-classes/$2ea2793747e5c7ea8c95$.class
+project/project/target/config-classes/$2ea2793747e5c7ea8c95.cache
+project/project/target/config-classes/$2ea2793747e5c7ea8c95.class
+project/target/config-classes/
+project/target/scala-2.10/
+project/target/streams/compile/incCompileSetup/
+src/main/scala/
+src/test/scala/
