@@ -30,8 +30,8 @@ public class Main {
         options.addOption("v2", "version2", true, "Path to the Understand udb file of version 1");
 
 
-        v1path = Main.class.getResource("SimpleProject.udb").toURI().getPath();
-        v2path = Main.class.getResource("SimpleProjectV2.udb").toURI().getPath();
+        v2path = Main.class.getResource("SimpleProject.udb").toURI().getPath();
+        v1path = Main.class.getResource("SimpleProjectV2.udb").toURI().getPath();
 
         try {
             // parse the command line arguments
@@ -59,7 +59,7 @@ public class Main {
             us.addDB(v2path);
         } catch (UnderstandException e) {
             System.out.println("Failed to access the specified DB: \n" + v1path + "\n" + v2path);
-            System.exit(0);
+            System.exit(2);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
