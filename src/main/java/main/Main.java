@@ -44,6 +44,7 @@ public class Main {
             }
             else {
                 System.out.println("Usage: -v1 path/to/version1 -v2 path/to/version2");
+                System.exit(2);
             }
         } catch (ParseException exp) {
             System.out.println("Unexpected exception:" + exp.getMessage());
