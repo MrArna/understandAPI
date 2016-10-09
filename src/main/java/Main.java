@@ -30,8 +30,8 @@ public class Main {
         options.addOption("v2", "version2", true, "Path to the Understand udb file of version 1");
 
 
-        v2path = Main.class.getResource("SimpleProject.udb").toURI().getPath();
-        v1path = Main.class.getResource("SimpleProjectV2.udb").toURI().getPath();
+        v2path = ClassLoader.class.getResource("/Tutorial.udb").toURI().getPath();
+        v1path = ClassLoader.class.getResource("/TutorialV2.udb").toURI().getPath();
 
         try {
             // parse the command line arguments

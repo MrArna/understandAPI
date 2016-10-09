@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="app" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="cs474-hw2" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="SBT" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/../../target/classes" />
     <output-test url="file://$MODULE_DIR$/../../target/test-classes" />
@@ -16,8 +16,14 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../target/resource_managed/test" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../../target" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/classes" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/resolution-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/resource_managed" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/scala-2.10" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/src_managed" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/streams" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/test-classes" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/test-reports" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
