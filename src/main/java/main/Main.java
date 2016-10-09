@@ -1,4 +1,4 @@
-/**
+package main; /**
  * Created by Marco on 23/09/16.
  */
 import com.scitools.understand.UnderstandException;
@@ -30,9 +30,6 @@ public class Main {
         options.addOption("v2", "version2", true, "Path to the Understand udb file of version 1");
 
 
-        v2path = ClassLoader.class.getResource("/Tutorial.udb").toURI().getPath();
-        v1path = ClassLoader.class.getResource("/TutorialV2.udb").toURI().getPath();
-
         try {
             // parse the command line arguments
             CommandLine line = parser.parse(options, args);
@@ -44,6 +41,9 @@ public class Main {
                 v1path = line.getOptionValue("v1");
                 v2path = line.getOptionValue("v2");
 
+            }
+            else {
+                System.out.println("Usage: -v1 path/to/version1 -v2 path/to/version2");
             }
         } catch (ParseException exp) {
             System.out.println("Unexpected exception:" + exp.getMessage());

@@ -13,7 +13,7 @@ Using the Understand API calls, your program will process these versions and con
 The application was developed with IntelliJ, with the use of SBT in order to manage the libraries and to create a fat jar. It has been designed in order to be as extendable as possible.
 In detail, it's composed by 2 modules and different classes:
 
-+ *Main*: this is the the core of the application, where the other classes are instantiated and used. It is in charge to expose a UI to the user and to call the right methods depending on the user choices.
++ *main.Main*: this is the the core of the application, where the other classes are instantiated and used. It is in charge to expose a UI to the user and to call the right methods depending on the user choices.
 + **Entities**: this module contains the classes representing the graph and its edges
     + *RelationshipEdge*: this class represent an edge between two nodes and it relationship. The node type is parametric.
     + *EnityGraph*: this class represents the entity graph. It provides methods to populate and create the graph with edges and nodes. It also provide methods in order to apply the closure over the graph and retrieving a subgraph given a list of nodes.
@@ -55,9 +55,9 @@ Understand should be installed and configured in the hosting system. A tutorial 
 ######USE
 To use the application, open the terminal and type as the following snippet of code, from the folder where the jar is located:
 
-`java -jar understandAnalizer-Arnaboldi-assembly-final.jar [-v1 path/to/version/1/udbfile -v2 path/to/version/2/udbfile]`
+`java -jar filejar -v1 path/to/version/1/udbfile -v2 path/to/version/2/udbfile`
 
-It's important that the path doesn't contain white spaces. If the two version are not specified, the application runs in tutorial mode, two standard example are loaded from the resources in the fat jar.
+It's important that the path doesn't contain white spaces.
 
 #Test
 ----------------
@@ -68,7 +68,7 @@ The tests and the application were developed in a OS X environment.
 All the tests were made automated by using JUnit. In particular these test were used to ensure the correct behavior of the service and entities classes. To evaluate the service classes two UDBs extracted by the a two simple fake applications were used. They are located in the resources folder under the test. 
 
 #### Other test
-Another test, in order to validate the overall application, was made running it over a project retrieved from [OpenHub](https://www.openhub.net). The following application, a game developed in Java, was evaluated in two consecutive versions: [Marauroa](https://www.openhub.net/p/marauroa). The corresponding UDB files are located in the resources folder under "main.java". The UDB files for this project can be found in the root of the repository. This test showed the complexity of some operation, like closure and difference by isomorphism, since how the are implemented in *JGrapht* library -in particular for what concern isomorphism- makes the problem to find the isomorphic graph in a huge graph a NP-complete problem, hence takes a lot of time to compute the isomorphism given two huge problem. My suggestion is to test the isomorphism functionalities to significant smaller project, in term of graph dimension.
+Another test, in order to validate the overall application, was made running it over a project retrieved from [OpenHub](https://www.openhub.net). The following application, a game developed in Java, was evaluated in two consecutive versions: [Marauroa](https://www.openhub.net/p/marauroa). The corresponding UDB files are located in the resources folder under "main.java". The UDB files for this project can be found in the root of the repository. This test showed the complexity of some operation, like closure and difference by isomorphism, since how the are implemented in *JGrapht* library -in particular for what concern isomorphism- makes the problem to find the isomorphic graph in a huge graph a NP-complete problem, hence takes a lot of time to compute the isomorphism given two huge problem. My suggestion is to test the isomorphism functionalities to significant smaller project, in term of graph dimension, one example are the two Tutorial.udb files in the root folder.
 
 #Acknowledgments
 ---------------

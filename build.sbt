@@ -1,9 +1,5 @@
-mainClass in (Compile, run) := Some("Main")
+name := "cs474-hw2"
 
-
-resourceDirectory in assembly := baseDirectory.value
-
-parallelExecution in assembly := false
 parallelExecution in Test := false
 crossPaths := false
 autoScalaLibrary := false
