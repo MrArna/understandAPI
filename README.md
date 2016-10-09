@@ -57,7 +57,7 @@ To use the application, open the terminal and type as the following snippet of c
 
 `java -jar filejar -v1 path/to/version/1/udbfile -v2 path/to/version/2/udbfile`
 
-It's important that the path doesn't contain white spaces.
+It's important that the path doesn't contain white spaces. V2 should be a subgraph of v1 in order to find isomorphism.
 
 #Test
 ----------------
