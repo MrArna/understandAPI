@@ -1,6 +1,6 @@
-CS474 @ UIC: HOMEWORK2
+UNDERSTAND API
 ====================
-Developed by Marco Arnaboldi (marnab2@uic.edu)
+Developed by Marco Arnaboldi (marnab2@uic.edu) as CS474 @ UIC: HOMEWORK2
 
 #Description
 --------------------
